@@ -31,7 +31,7 @@ describe "The /movies/new page" do
       "Expected /movies/new to have a form with action='/movies'."
   end
 
-  it "has a hidden authenticity token input", points: 1 do
+  it "has a hidden authenticity token input", points: 2 do
     expect(page).to have_selector("input[name='authenticity_token']", visible: false),
       "Expected the new movie form to have an input field of type='hidden' and name='authenticity_token'."
   end
@@ -59,7 +59,7 @@ describe "The movie details page" do
       "Expected to visit /movies/ID successfully."
   end
 
-  it "has a link to delete the movie with a DELETE request", points: 1 do
+  it "has a link to delete the movie with a DELETE request", points: 2 do
     expect(page).to have_selector("a[href='/movies/#{ @movie.id }'][data-method='delete']", text: 'Delete movie'),
       "Expected /movies/ID to have 'Delete movie' link with the proper data-method='delete'."
   end
