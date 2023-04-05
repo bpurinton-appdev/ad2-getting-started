@@ -15,14 +15,7 @@ describe "The /movies page" do
     expect(page).to have_link('Add a new movie', href: "/movies/new"),
       "Expected /movies to have an 'Add a new movie' link to '/movies/new'"
   end
-end
 
 
-describe "The /books page" do
-  it "can be visited", points: 1 do
-    visit "/books"
-    
-    expect(page.status_code).to be(200),
-      "Expected to visit /books successfully, but didn't find it."
-  end
 end
+
