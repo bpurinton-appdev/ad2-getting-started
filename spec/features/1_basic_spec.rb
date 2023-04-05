@@ -47,11 +47,11 @@ end
 
 describe "The movie details page" do
   before do
-    m = Movie.create(
+    @movie = Movie.create(
       title: "My title",
       description: "My description"
     )
-    visit 'movies/' + m.id.to_s
+    visit "/movies/#{@movie.id}"
   end
 
   it "can be visited", points: 1 do
@@ -60,8 +60,8 @@ describe "The movie details page" do
   end
 
   it "has a link to delete the movie", points: 1 do
-    expect(page).to have_link('Delete movie', href: 'movies/' + m.id.to_s, data-method: "delete"),
-      "Expected /movies to have an 'Add a new movie' link to '/movies/new'."
+    expect(page).to have_selector("a[href='/movies/#{ @movie.id }'][data-method='delete']", text: 'Delete movie'),
+      "Expected /movies/ID to have 'Delete movie' link with the proper data-method='delete'."
   end
 
   # it "has a form", points: 1 do
