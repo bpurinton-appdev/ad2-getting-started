@@ -29,30 +29,12 @@ describe "The /movies/new page" do
 
     expect(page).to have_selector("form"),
       "Expected /movies/new to have a form, but didn't find the form element."
-
-    # expect(page).to have_link('Create movie', href: "/movies"),
-    #   "Expected /movies/new to have a 'Create movie' form button to '/movies/new'"
   end
 
-  it "has an authenticity token input", points: 1 do
+  it "has a hidden authenticity token input", points: 1 do
     visit "/movies/new"
 
-    expect(page).to have_selector("input[name='authenticity_token']")
-    # expect(page).to have_selector('input[type="hidden"]')
-    # expect(page).to have_field('Descripton')
-    # expect(page).to have_selector("input[name='query_titl']")
+    expect(page).to have_selector("input[name='authenticity_token']", visible: false),
+      "Expected the new movie form to have an input field of type='hidden' and name='authenticity_token'."
   end
 end
-
-# describe 'routing' do
-#   it 'routes GET /movies to MoviesController#index' do
-#     expect(get: '/movies').to route_to(controller: 'movies', action: 'index')
-#   end
-# end
-
-# describe "The new movies page" do
-#   it "has a form to enter a new movie", points: 1 do
-#     visit "/movies/new"
-
-#   end
-# end
