@@ -59,7 +59,7 @@ describe "The movie details page" do
       "Expected to visit /movies/ID successfully."
   end
 
-  it "has a link to delete the movie", points: 1 do
+  it "has a link to delete the movie with a DELETE request", points: 1 do
     expect(page).to have_selector("a[href='/movies/#{ @movie.id }'][data-method='delete']", text: 'Delete movie'),
       "Expected /movies/ID to have 'Delete movie' link with the proper data-method='delete'."
   end
